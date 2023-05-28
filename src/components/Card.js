@@ -1,7 +1,11 @@
+import { useDispatch } from "react-redux";
+import { add } from "../store/cartSlice";
 import "./Card.css";
 
 export function Card(props) {
-    const {name, price, image} = props.product
+    const {id, name, price, image} = props.product
+
+    const dispatch = useDispatch()
 
     return (
         <div className="card">
@@ -11,7 +15,7 @@ export function Card(props) {
             <p className="card-name">{name}</p>
             <div className="card-detail">
                 <p className="price">${price}</p>
-                <button className="button">Add To Cart</button>
+                <button onClick={() => dispatch(add(props.product))} className="button">Add To Cart</button>
             </div>
         </div>
     )
