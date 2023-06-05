@@ -18,7 +18,7 @@ export function Card(props) {
         } else {
             setIsInCart(false)
         }
-    }, [cartList])
+    }, [cartList, id])
 
     return (
         <div className="card">
